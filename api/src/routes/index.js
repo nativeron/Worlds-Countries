@@ -88,9 +88,11 @@ router.get("/countries", async (req, res) => {
     });
     return res.json(countries) 
   }
+
  countries = await Country.findAll({
     attributes: ["alpha3Code", "name", "flag",  "population","subregion"],
     include: { model: Activity, required: false },
+    limit: 10
   });
   return res.json(countries);
 });
