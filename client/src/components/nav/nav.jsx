@@ -12,6 +12,9 @@ function Nav() {
                 <Link to={'/'}>
                     <img src={logo} width='180px' />
                 </Link>
+                <Link to={'/countries'}>
+                    <h4 className='H3'>Home </h4>
+                </Link>
                 <Link to={'/activity'}>
                     <h4 className='H3'>Create Activity </h4>
                 </Link>

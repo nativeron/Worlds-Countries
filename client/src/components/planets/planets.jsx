@@ -13,21 +13,21 @@ function Planets() {
         <div id="planets">
             <Link to="/error">
                 <div id="saturn">
-                    <div class="arrow"><FaArrowLeft/>
+                    <div className="arrow"><FaArrowLeft/>
                 </div> 
                 Go to saturn
-                <img class="planets" src={saturn} />
+                <img className="planets" src={saturn} />
                 </div>
             </Link>
               <div id="earth" >
-                    <img id="tierra" class="planets" src={earth}/>
+                    <img id="tierra" className="planets" src={earth}/>
                     <div id="text">You are on earth</div> 
               </div>
             <Link to="/error">
               <div id="jupiter" >
                  Go to jupiter
-                 <img class="planets" src={jupiter}/> 
-            <div class="arrow"> <FaArrowRight/> </div> 
+                 <img className="planets" src={jupiter}/> 
+            <div className="arrow"> <FaArrowRight/> </div> 
             
               </div></Link>
         

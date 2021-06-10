@@ -90,7 +90,7 @@ router.get("/countries", async (req, res) => {
   }
 
  countries = await Country.findAll({
-    attributes: ["alpha3Code", "name", "flag",  "population","subregion"],
+    attributes: ["alpha3Code", "name", "flag","region","population","subregion"],
     include: { model: Activity, required: false },
   
   });
