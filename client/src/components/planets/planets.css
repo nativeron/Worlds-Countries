@@ -1,0 +1,37 @@
+.planets{
+    width: 10%;
+}
+#tierra{
+    width: 20%;
+}
+#planets{
+    display: flex;
+    align-items: center;
+    margin: 15px;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: rgb(255, 255, 255,.2);
+    box-shadow: 0 1px 10px rgb(0 0 0 / 50%);
+}
+#saturn, #jupiter{
+    display: flex;
+    align-content: stretch;
+    justify-content: center;
+    align-items: center;
+    color: rgb(175, 175, 175);
+    font-size: 20px;
+}
+
+#earth{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+}
+
+
+#text{
+    position: absolute;
+    margin: 20px;
+    font-size: xx-large;
+}
