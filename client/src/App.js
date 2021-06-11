@@ -7,6 +7,7 @@ import Planets from './components/planets/planets';
 import Search from './components/search/search';
 import { Pagination } from './components/pagination/pagination';
 import detail from './components/detail/detail';
+import Form from './components/form/form';
 
 
 function App() {
@@ -22,10 +23,13 @@ function App() {
       <Route exact path= '/countries' component={Pagination}/>
 
       <Route path= '/activity' component={Nav}/>
-
+      <Route path='/activity' component={Form} />
+      
       <Route path= '/about' component={Nav}/>
 
       <Route path= '/countries/:id' component={detail} />
+
+      
       
     </div>
   );
