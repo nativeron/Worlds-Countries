@@ -1,19 +1,18 @@
 import React from 'react';
-import './landing.css'
+import s from './landing.module.css'
 import { Link } from 'react-router-dom';
 import world from '../../img/world.gif';
 import logo from '../../img/logolanding.png'
 
  function Landing() {
     return (
-        <div className="ContenedorLanding"> 
-        <div id="container">
+        <div> 
+        <div className={s.container}>
           <img src={logo} width='400px'/>
-               <img src={world} width='600px'/>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua
-                </p>
+               <img className={s.world}src={world} width='600px'/>
+            
                 <Link to={'/countries'}>
-                    <button className="BotonLanding">Ingresar </button>
+                    <button>enter </button>
             
             </Link>
             </div>

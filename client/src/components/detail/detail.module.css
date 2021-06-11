@@ -1,0 +1,14 @@
+.container{
+    background-color: white;
+    width: 50%;
+    border-radius: 30px;
+}
+
+.flag{
+    width: 30%;
+}
+
+.details{
+    display: flex;
+    justify-content: center;
+}

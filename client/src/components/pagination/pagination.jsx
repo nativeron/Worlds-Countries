@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { connect, useDispatch, useSelector } from 'react-redux';
 import { getCountries} from '../../actions/index'
 import Card from '../card/card';
-import './pagination.css'
+import s from './pagination.module.css'
 
 export function Pagination() {
 
@@ -22,8 +22,8 @@ export function Pagination() {
 	}, [])
 
 	return(
-        <div >
-            <div >
+        <div className={s.container}>
+            <div className={s.country}>
                 {paises && paises.map( (pais,index) => 
                     <Card name={pais.name} region={pais.region} flag={pais.flag} alpha3Code={pais.alpha3Code} key={index}/>
                 )}

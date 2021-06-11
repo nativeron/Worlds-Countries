@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import style from './card.modules.css'
+import style from './card.module.css'
 
 export function Card({flag, name, region, alpha3Code}) {
 	return (
 		<div class={style.card}>
 			<div className="imgn">
 				<img src={flag}className={style.flag}/>
-			</div>
+			
 			<div className="datos">
 				<div className="nombre">
 					<h1>{name}</h1>
@@ -17,7 +17,7 @@ export function Card({flag, name, region, alpha3Code}) {
 					<button className="detail">Country Detail</button>
 				</Link>
 			</div>
-		</div>
+		</div></div>
 	)
 }
 

@@ -1,0 +1,36 @@
+body{
+    background-color: #2a2357;
+    
+}
+
+#img{
+    width: 30%;
+}
+
+
+.container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+button{
+   
+    color: blanchedalmond;
+  
+    text-decoration: none;
+    font-size: 2em;
+    border-radius: 10px;
+    border: none;
+    background-color: #2a2357;
+    font-family: monospace;
+}
+button:hover{
+
+    box-shadow: 0 0 30px #61dafb;
+}
+
+.world{
+    margin-bottom: 50px;
+}

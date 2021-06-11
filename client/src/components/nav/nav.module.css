@@ -1,8 +1,12 @@
 body{
     background-color: #2a2357;
 }
-nav{
-    background-color: white;
+.nav{
+    background-color: #2a2357;
     display: flex;
     justify-content: space-around;
+}
+
+.h4{
+    color:greenyellow
 }

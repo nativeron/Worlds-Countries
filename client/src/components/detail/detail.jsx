@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { connect, useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
 import { getCountry } from "../../actions";
+import s from './detail.module.css'
 
 
 
@@ -16,9 +17,10 @@ function Detail() {
     }, [dispatch, id])
 
     return(
-        <div>
+        <div className={s.details}>
+        <div className={s.container}>
             <h1>{country.name}</h1>
-							<img src={country.flag} />
+							<img className={s.flag} src={country.flag} />
 							<h3>Alpha3Code: {country.alpha3Code}</h3>
 							<p>Capital: {country.capital}</p>
 							<p>Subregión: {country.subregion}</p>
@@ -50,7 +52,7 @@ function Detail() {
                 }
             </div>
                             
-        </div>
+        </div></div>
     )
 
 }
