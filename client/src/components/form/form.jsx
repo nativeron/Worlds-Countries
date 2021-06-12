@@ -18,7 +18,7 @@ export default function Form() {
       difficulty: '',          // si pasamos esta función a cualq input, podemos usar su atributo name para indicar
       season: '',
       duration: '',
-      countries: '',
+      country: [],
     });                       // el nombre de la propiedad en el estado.
                               
     useEffect(()=>{
@@ -41,36 +41,52 @@ export default function Form() {
 
     const handlerSubmit = async (e) =>{
         e.preventDefault()
-        axios.post('http://localhost:3001/activity', input)
+        if (!errors.name){
+        await axios.post('http://localhost:3001/activity', input)
         .then (res=>{
-            alert('todo bien!');
             setInput({
                 name:'',
                 difficulty:'',
                 season:'',
                 duration:'',
-                countries:[]
+                country:[]
             })
+            alert('todo bien!');
         })
-        .catch(res=> alert(':('))
+        .catch(res=> alert(':('))}
+        else{
+            alert('algo malio sal')
+        }
     }
 
     function handleSelect(e) {
-        if (input.countries.includes(parseInt(e.target.value))) {
-            alert('You already selected this temperament. Try again.')
-        } else if (input.countries.length >= 3) {
+        if (input.country.length >= 3) {
             alert('You can select up to 3 temperaments.')
         } else {
-            setInput((prev) => ({ ...prev, countries: [...prev.countries, parseInt(e.target.value)] }))
+            setInput((prev) => ({ ...prev, country: [...prev.country, e.target.value] }))
         }
     }
 
     function deleteTemp(e, t) {
-        setInput((prev) => ({ ...prev, countries: prev.countries.filter(temp => temp !== parseInt(t)) }))
+        setInput((prev) => ({ ...prev, country: prev.country.filter(temp => temp !== t) }))
     }
     
+    function getNames(arr) {
+        let names = [];
+        countries.filter((x)=>{
+            if (x.alpha3Code===arr){
+                names.push(x.name)
+            }
+        })
+
+        return names;
+    }
+
+   
+
+
       return (
-        <form >
+        <form onSubmit={handlerSubmit}>
           <div id="frm"><div>
             <h1>Create activity</h1>                      
             <input  id= "name" className={errors.name && 'danger'}  //onChange pasa un evento a la función que le pasemos.
@@ -100,21 +116,21 @@ export default function Form() {
           </div>
 
           <div>
-                    <p>Temperaments</p>
-                    <select name="countries" onChange={(e) => handleSelect(e)}  required value={input.countries}>
+                    <p>Countries</p>
+                    <select name="countries" onChange={(e) => handleSelect(e)}  required value={input.country}>
                         <option>
                             Select
                     </option>
 
                         {countries.map((e) => (
-                            <option value={e.alpha3Code} key={e.alpha3Code}>{e.name}</option>)
+                            <option value={e.alpha3Code} >{e.name}</option>)
                         )}
                     </select>
-                </div>
+                </div>j
                 <div >
-                    {
-                        countries.map(t => (
-                            <p id={t} >{getCountries(t)} <button type='button' onClick={(e) => deleteTemp(e, t)}>x</button></p>
+                    {   
+                        input.country.map(x => (
+                            <p>{getNames(x)} <button type='button' onClick={(e) => deleteTemp(e, x)}>x</button></p>
                         ))
                     }
                 </div>
@@ -122,7 +138,8 @@ export default function Form() {
 
 
           <div>
-            <input id="button" type="submit" value="create" onChange={handleInputChange}/></div>
+            <button type='submit'>create</button>
+                </div>
           </div>
         </form>
     
