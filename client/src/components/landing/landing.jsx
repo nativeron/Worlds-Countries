@@ -12,7 +12,7 @@ import logo from '../../img/logolanding.png'
                <img className={s.world}src={world} width='600px'/>
             
                 <Link to={'/countries'}>
-                    <button>enter </button>
+                    <button>ENTER </button>
             
             </Link>
             </div>

@@ -21,17 +21,3 @@ export function getCountry(id) {
     }
 }
 
-export function postActivity(data) {
-    return function (dispatch) {
-        return axios.post('http://localhost:3001/activity', data)
-            .then(res => {
-
-                console.log("RESPUESTA")
-                console.log(res);
-                console.log(" FIN RESPUESTA")
-                dispatch({ type: POST_ACTIVITY, payload: res });
-
-
-            })
-    }
-}

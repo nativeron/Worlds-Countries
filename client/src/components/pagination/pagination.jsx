@@ -5,7 +5,7 @@ import Card from '../card/card';
 import s from './pagination.module.css'
 
 export function Pagination() {
-
+	
 	const dispatch = useDispatch()
 	const countries = useSelector(state => state.countries)
 
@@ -14,7 +14,10 @@ export function Pagination() {
 	const conteofinal = numpag * group
 	const conteoinicial= conteofinal - group
 
+	const [searchCountry, setSearchCountry] = useState("")
 	const paises = countries.slice(conteoinicial, conteofinal)
+	const hola=[]
+	var chau=[]
 	
 	
 	useEffect(() => {
@@ -22,11 +25,28 @@ export function Pagination() {
 	}, [])
 
 	return(
+		
+
         <div className={s.container}>
+			<div>
+				<input type="text" placeholder="search" onChange={(e)=>{setSearchCountry(e.target.value)}}></input>
+			</div>
             <div className={s.country}>
-                {paises && paises.map( (pais,index) => 
+                {  searchCountry ? countries.filter((val)=>{
+					if(val.name.toLowerCase().includes(searchCountry.toLowerCase())){
+						hola.push(val)
+						chau = hola.slice(conteoinicial,conteofinal)
+					}
+				}) :<p></p>
+			}{searchCountry ? chau.map( (pais,index) => 
+				<Card name={pais.name} region={pais.region} flag={pais.flag} alpha3Code={pais.alpha3Code} key={index}/>
+			)
+				: 
+				
+					paises.map( (pais,index) => 
                     <Card name={pais.name} region={pais.region} flag={pais.flag} alpha3Code={pais.alpha3Code} key={index}/>
-                )}
+                )
+				}
             </div>
             
 

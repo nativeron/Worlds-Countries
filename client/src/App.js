@@ -1,6 +1,6 @@
 import './App.css';
-import React from 'react';
-import {Route, Switch} from "react-router-dom";
+import React, { useState } from 'react';
+import {Route} from "react-router-dom";
 import Landing from './components/landing/landing';
 import Nav from './components/nav/nav';
 import Planets from './components/planets/planets';
@@ -11,6 +11,8 @@ import Form from './components/form/form';
 
 
 function App() {
+
+
   return (
     <div className="App">
      
@@ -19,7 +21,6 @@ function App() {
 
       <Route path= '/countries' component={Nav}/>
       <Route path= '/countries' component={Planets}/>
-      <Route path= '/countries' component={Search}/>
       <Route exact path= '/countries' component={Pagination}/>
 
       <Route path= '/activity' component={Nav}/>
