@@ -1,13 +1,10 @@
-import { GET_COUNTRIES, GET_COUNTRY, POST_ACTIVITY } from "../actions/index"
+import { GET_COUNTRIES, GET_COUNTRY, SORT, AZ, ZA } from "../actions/index"
 
 const initialState ={
-    //countryName:[],
     activity:[],
     countries:[],
     country:{},
-    //filtroCont:{},
-    //change_countries:{},
-	//countryAlpha3Code:[]
+    filtrados:[],
     loading: false
 }
 
@@ -25,10 +22,34 @@ function rootReducer(state= initialState,action){
             country:action.payload
         }
     }
-    if (action.type === POST_ACTIVITY){
+    if (action.type === SORT){
+		return{
+			...state,
+			countries: action.payload
+		}
+	}
+    if (action.type === 'AZ') {
         return {
             ...state,
-            acitivity:action.payload
+            countries: state.countries.sort((a,b)=>(a.name>b.name ? 1 : -1))
+        };
+    }
+    if (action.type === 'ZA') {
+        return {
+            ...state,
+            countries: state.countries.sort((a,b)=>(a.name>b.name ? -1 : 1))
+        };
+    }
+    if(action.type === 'POP_ASC'){
+        return {
+            ...state,
+            countries: state.countries.sort((a,b)=> a.population>b.population ? 1 : -1)
+        }
+    }
+    if(action.type === 'POP_DES'){
+        return {
+            ...state,
+            countries: state.countries.sort((a,b)=> a.population>b.population ? -1 : 1)
         }
     }
 	

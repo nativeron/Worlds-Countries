@@ -4,7 +4,7 @@ import {Route} from "react-router-dom";
 import Landing from './components/landing/landing';
 import Nav from './components/nav/nav';
 import Planets from './components/planets/planets';
-import Search from './components/search/search';
+
 import { Pagination } from './components/pagination/pagination';
 import detail from './components/detail/detail';
 import Form from './components/form/form';
