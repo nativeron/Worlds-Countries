@@ -54,10 +54,10 @@ export default function Filtrar(){
 	  }
 
 	  function handleOrder(e){
-		  dispatch(sort(e.target.value))
+		  dispatch(sort(e.target.value, countries))
 	  }
 	  function handlePopulation(e){
-		  dispatch(populationSort(e.target.value))
+		  dispatch(populationSort(e.target.value, countries))
 	  }
 
   	return(

@@ -50,33 +50,33 @@ function rootReducer(state= initialState,action){
     if (action.type === 'AZ') {
         return {
             ...state,
-            countries: state.countries.sort((a,b)=>(a.name>b.name ? 1 : -1)),
-            filteredcountries: state.filteredcountries.sort((a,b)=>(a.name>b.name ? 1 : -1)),
-            searchedcountries: state.searchedcountries.sort((a,b)=>(a.name>b.name ? 1 : -1))
+            countries: action.payload,
+            filteredcountries: action.payload,
+            searchedcountries: action.payload
         };
     }
     if (action.type === 'ZA') {
         return {
             ...state,
-            countries: state.countries.sort((a,b)=>(a.name>b.name ? -1 : 1)),
-            filteredcountries: state.filteredcountries.sort((a,b)=>(a.name>b.name ? -1 : 1)),
-            searchedcountries: state.searchedcountries.sort((a,b)=>(a.name>b.name ? -1 : 1))
+            countries: action.payload,
+            filteredcountries: action.payload,
+            searchedcountries: action.payload,
         };
     }
     if(action.type === 'POP_ASC'){
         return {
             ...state,
-            countries: state.countries.sort((a,b)=> a.population>b.population ? 1 : -1),
-            filteredcountries: state.countries.sort((a,b)=> a.population>b.population ? 1 : -1),
-            searchedcountries: state.countries.sort((a,b)=> a.population>b.population ? 1 : -1),
+            countries: action.payload,
+            filteredcountries: action.payload,
+            searchedcountries: action.payload,
         }
     }
     if(action.type === 'POP_DES'){
         return {
             ...state,
-            countries: state.countries.sort((a,b)=> a.population>b.population ? -1 : 1),
-            filteredcountries: state.countries.sort((a,b)=> a.population>b.population ? -1 : 1),
-            searchedcountries: state.countries.sort((a,b)=> a.population>b.population ? -1 : 1),
+            countries: action.payload,
+            filteredcountries: action.payload,
+            searchedcountries: action.payload,
         }
     }
 	

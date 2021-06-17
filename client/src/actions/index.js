@@ -53,15 +53,75 @@ export function filter(payload){
     }
 }
 
-export function sort(order) {
-    return {
-        type: order,
+export function sort(order,opaises) {
+    let paises = [...opaises]
+
+    paises.sort((a, b) => {
+
+
+
+        var nombreA = a.name.toUpperCase()
+        var nombreB = b.name.toUpperCase()
+
+
+        if (order === 'AZ') {
+            if (nombreA < nombreB) {
+                return -1;
+            }
+            if (nombreA > nombreB) {
+                return 1
+            }
+            return 0
+        }
+        if (order === 'ZA') {
+            if (nombreA < nombreB) {
+                return 1;
+            }
+            if (nombreA > nombreB) {
+                return -1
+            }
+            return 0
+        }
+    })
+    return function (dispatch) {
+        dispatch({ type: order, payload: paises })
     }
 }
 
-export function populationSort(order){
-    return{
-        type:order
+export function populationSort(order, oHabitantes){
+    let habitantes = [...oHabitantes]
+
+    habitantes.sort(function (a, b) {
+
+        var poblacionA = parseFloat(a.population)
+        var poblacionB = parseFloat(b.population)
+
+
+
+        if (order === 'POP_ASC') {
+            if (poblacionA < poblacionB) {
+                return -1;
+            }
+            if (poblacionA > poblacionB) {
+                return 1
+            }
+            return 0
+        }
+        if (order === 'POP_DES') {
+            if (poblacionA < poblacionB) {
+                return 1;
+            }
+            if (poblacionA > poblacionB) {
+                return -1
+            }
+            return 0
+        }
+    })
+
+
+
+    return function (dispatch) {
+        dispatch({ type: order, payload: habitantes })
     }
 }
 
