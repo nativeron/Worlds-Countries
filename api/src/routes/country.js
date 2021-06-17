@@ -21,7 +21,7 @@ router.use(async (req, res, next) => {
       area: c.area,
       population: c.population,
     }));
-    await Country.bulkCreate(countrymap);
+    await Country.bulkCreate(countrymap); //buscar q mierda es esto
   }
   next();
 });

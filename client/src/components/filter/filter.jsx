@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { sort, getActivities, populationSort, filter} from '../../actions/index';
+import { sort, getActivities, populationSort, filter, filtroReg} from '../../actions/index';
 
 
 
@@ -16,6 +16,8 @@ export default function Filtrar(){
 
 	let [selectedActivity, setSelectedActivity] = useState('')
 	let [actToFilterBy, setActToFilterBy] = useState([])
+	let [selectedRegion, setSelectedRegion] = useState('')
+	let [regToFilterBy, setRegToFilterBy] = useState([])
 
 	function click() {
 		let  filtered= []
@@ -23,6 +25,9 @@ export default function Filtrar(){
 			p.Activities.map(a=> a.name === selectedActivity ? 
 				filtered.push(p) : null
 				)
+		})
+		countries.forEach((p)=>{
+			if (p.region === selectedRegion)filtered.push(p)
 		})
 		dispatch(filter(filtered))
   	}
@@ -35,9 +40,17 @@ export default function Filtrar(){
 		  setSelectedActivity(e.target.value)
 	  }
 
+	  function handleChangeReg(e) {
+		  filtroReg(e.target.value)
+		  setSelectedRegion(e.target.value)
+		  console.log(e.target.value)
+	  }
+
 	  function handleSubmit(e){
 		  e.preventDefault()
+		  setRegToFilterBy([...regToFilterBy, selectedRegion])
 		  setActToFilterBy([...actToFilterBy, selectedActivity])
+		  
 	  }
 
 	  function handleOrder(e){
@@ -57,6 +70,18 @@ export default function Filtrar(){
 						<option value={e.name} key={e.id}>{e.name}</option>
 	  				))}
 				</select>
+				
+				<p>by region</p>
+				<select onChange={handleChangeReg} name="regions" value={selectedRegion}>
+					<option>select</option>
+					<option>Asia</option>
+					<option>Americas</option>
+					<option>Europe</option>
+					<option>Oceania</option>
+					<option>Africa</option>
+					<option>Polar</option>
+				</select>
+
 				<div>
 					<button onClick={resetAct}>erase filter</button>
 					<button onClick={()=>click() }>filter</button>

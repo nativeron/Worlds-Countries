@@ -1,4 +1,4 @@
-import { GET_COUNTRIES, FILTER , GET_COUNTRY, GET_ACTIVITIES, SORT, AZ, ZA } from "../actions/index"
+import { GET_COUNTRIES, FILTER , GET_COUNTRY, GET_ACTIVITIES, SORT, GET_COUNTRIESREGION} from "../actions/index"
 
 const initialState ={
     activities:[],
@@ -21,6 +21,12 @@ function rootReducer(state= initialState,action){
         return {
             ...state,
             country:action.payload
+        }
+    }
+    if (action.type === GET_COUNTRIESREGION){
+        return{
+            ...state,
+            filteredcountries: action.payload
         }
     }
     if (action.type === SORT){

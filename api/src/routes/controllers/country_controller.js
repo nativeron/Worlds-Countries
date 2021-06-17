@@ -4,11 +4,12 @@ const { Op } = require("sequelize");
 
 async function getCountries (req, res){
   let countries;
-  let { name, region, activity } = req.query;
+  let { name, region} = req.query;
 
 
   if (name) {
     name = name.split(" ").map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
+    //buscar todo esto o cambiarlo
     countries = await Country.findAll({
       where: { name: { [Op.like]: `%${name}%` } },
       include: { model: Activity, required: false },
