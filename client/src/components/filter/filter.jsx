@@ -65,10 +65,10 @@ export default function Filtrar(){
 			  <form onSubmit={handleSubmit}>
 				<p>by activity</p>
 				<select onChange={handleChangeAct} name="activities" value={selectedActivity}>
-					<option>select</option>
-					{activities.map((e)=>(
+					<option>any</option>
+					{activities ? activities.map((e)=>(
 						<option value={e.name} key={e.id}>{e.name}</option>
-	  				))}
+	  				)): <option>select</option>}
 				</select>
 				
 				<p>by region</p>
@@ -80,6 +80,7 @@ export default function Filtrar(){
 					<option>Oceania</option>
 					<option>Africa</option>
 					<option>Polar</option>
+					<option value={''} >none</option>
 				</select>
 
 				<div>
