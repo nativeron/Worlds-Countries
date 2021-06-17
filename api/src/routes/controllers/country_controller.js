@@ -4,7 +4,7 @@ const { Op } = require("sequelize");
 
 async function getCountries (req, res){
   let countries;
-  let { name, region } = req.query;
+  let { name, region, activity } = req.query;
 
 
   if (name) {
@@ -23,6 +23,9 @@ async function getCountries (req, res){
     });
     return res.json(countries) 
   }
+  // if (activity){
+
+  // }
 
  countries = await Country.findAll({
     attributes: ["alpha3Code", "name", "flag","region","population","subregion"],

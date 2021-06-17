@@ -1,49 +1,86 @@
-import React from 'react'
-import { connect, useSelector } from 'react-redux';
+import React, {useEffect, useState} from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { sort, getActivities, populationSort, filter} from '../../actions/index';
 
-import {sort, ZA, AZ} from '../../actions/index'
 
 
-export function Filtrar(){
+export default function Filtrar(){
+	const dispatch = useDispatch()
+
+	useEffect(() => {
+        dispatch(getActivities())
+    }, [])
+
+	const activities = useSelector(state => state.activities)
     const countries = useSelector(state => state.countries)
 
-	function handleDispatchOrder(event) {
-    if (event.target.value === AZ || event.target.value === ZA) {
-      		sort(event.target.value, countries)
-    	}
+	let [selectedActivity, setSelectedActivity] = useState('')
+	let [actToFilterBy, setActToFilterBy] = useState([])
+
+	function click() {
+		let  filtered= []
+		countries.forEach((p)=>{
+			p.Activities.map(a=> a.name === selectedActivity ? 
+				filtered.push(p) : null
+				)
+		})
+		dispatch(filter(filtered))
   	}
+
+	  function resetAct(e){
+		  dispatch(filter([]))
+	  }
   	
+	  function handleChangeAct(e){
+		  setSelectedActivity(e.target.value)
+	  }
+
+	  function handleSubmit(e){
+		  e.preventDefault()
+		  setActToFilterBy([...actToFilterBy, selectedActivity])
+	  }
+
+	  function handleOrder(e){
+		  dispatch(sort(e.target.value))
+	  }
+	  function handlePopulation(e){
+		  dispatch(populationSort(e.target.value))
+	  }
 
   	return(
   		<div >
+			  <form onSubmit={handleSubmit}>
+				<p>by activity</p>
+				<select onChange={handleChangeAct} name="activities" value={selectedActivity}>
+					<option>select</option>
+					{activities.map((e)=>(
+						<option value={e.name} key={e.id}>{e.name}</option>
+	  				))}
+				</select>
+				<div>
+					<button onClick={resetAct}>erase filter</button>
+					<button onClick={()=>click() }>filter</button>
+				</div>
+			   </form>
 
-		  		<select  onChange={handleDispatchOrder}>
-				    <option>Order Alphabetically</option>
-				    <option value={AZ}>Ascendant</option>
-				    <option value={ZA}>descendant</option>
-				 </select>
-
-				{/* <select className="population" onChange={handleDispatchHab}>
-				    <option>Order by Habitants</option>
-				    <option value={HASD}>Ascendant</option>
-				    <option value={HDES}>descendant</option>
-				 </select> */}
-			
+			   <form>
+					<p>order by</p>
+					<select onChange={handleOrder}>
+						<option value=''>select</option>
+						<option value= 'AZ'>az</option>
+						<option value= 'ZA'>ZA</option>
+					</select>
+			   </form>
+		  	
+			  <form>
+				  <p>order by</p>
+				  <select onChange={handlePopulation}>
+					  <option value=''>select</option>
+					  <option value= "POP_ASC">pop asc</option>
+					  <option value="POP_DES">pop des</option>
+				  </select>
+			  </form>
 
   		</div>
-  	)
+	  )
 }
-
-function mapStateToProps(state){
-	return {
-		countries: state.countries
-
-	}
-}
-
-function mapDispatchToProps(dispatch){
-	return {
-		sort: (a, b) => dispatch(sort(a, b)),
-	}}
-
-export default connect(mapStateToProps,mapDispatchToProps)(Filtrar)

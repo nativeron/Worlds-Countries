@@ -12,6 +12,7 @@ import Form from './components/form/form';
 
 function App() {
 
+const [input, setInput] = useState('')
 
   return (
     <div className="App">
@@ -21,7 +22,7 @@ function App() {
 
       <Route path= '/countries' component={Nav}/>
       <Route path= '/countries' component={Planets}/>
-      <Route exact path= '/countries' component={Pagination}/>
+      <Route exact path= '/countries'> <Pagination input={input} setInput={setInput}/> </Route>
 
       <Route path= '/activity' component={Nav}/>
       <Route path='/activity' component={Form} />
