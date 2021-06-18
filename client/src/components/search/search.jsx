@@ -1,6 +1,5 @@
 import React from 'react'
-
-
+import s from './search.module.css'
 
 function SearchBar({ input, setInput }) {
 
@@ -11,12 +10,12 @@ function SearchBar({ input, setInput }) {
                     <input
                         type="text"
                         value={input}
-                        placeholder="Type to search automatically!"
+                        placeholder="Find a country"
                         onChange={(e) => setInput(e.target.value)}
                        
                     ></input>
                     <div >
-                        <i class="fa fa-search" ></i>
+                        
                     </div>
                 </div>
             </form>

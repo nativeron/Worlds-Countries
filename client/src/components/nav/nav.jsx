@@ -10,7 +10,7 @@ function Nav() {
         <div>
             <nav className={s.nav}>
                 <Link to={'/'}>
-                    <img src={logo} width='180px' />
+                    <img alt="logo" src={logo} width='180px' />
                 </Link>
                 <Link to={'/countries'}>
                     <h4 className={s.h4}>Home </h4>

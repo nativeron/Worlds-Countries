@@ -3,10 +3,8 @@ import { GET_COUNTRIES, FILTER , GET_COUNTRY, GET_ACTIVITIES, SORT, GET_COUNTRIE
 const initialState ={
     activities:[],
     countries:[],
-    filteredcountries:[],
-    searchedcountries: [],
+    filteredcountries:[], 
     country:{},
-    loading: false
 }
 
 function rootReducer(state= initialState,action){
@@ -52,7 +50,6 @@ function rootReducer(state= initialState,action){
             ...state,
             countries: action.payload,
             filteredcountries: action.payload,
-            searchedcountries: action.payload
         };
     }
     if (action.type === 'ZA') {
@@ -60,7 +57,6 @@ function rootReducer(state= initialState,action){
             ...state,
             countries: action.payload,
             filteredcountries: action.payload,
-            searchedcountries: action.payload,
         };
     }
     if(action.type === 'POP_ASC'){
@@ -68,7 +64,6 @@ function rootReducer(state= initialState,action){
             ...state,
             countries: action.payload,
             filteredcountries: action.payload,
-            searchedcountries: action.payload,
         }
     }
     if(action.type === 'POP_DES'){
@@ -76,7 +71,6 @@ function rootReducer(state= initialState,action){
             ...state,
             countries: action.payload,
             filteredcountries: action.payload,
-            searchedcountries: action.payload,
         }
     }
 	

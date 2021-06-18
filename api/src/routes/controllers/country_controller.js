@@ -9,7 +9,6 @@ async function getCountries (req, res){
 
   if (name) {
     name = name.split(" ").map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
-    //buscar todo esto o cambiarlo
     countries = await Country.findAll({
       where: { name: { [Op.like]: `%${name}%` } },
       include: { model: Activity, required: false },
@@ -24,9 +23,6 @@ async function getCountries (req, res){
     });
     return res.json(countries) 
   }
-  // if (activity){
-
-  // }
 
  countries = await Country.findAll({
     attributes: ["alpha3Code", "name", "flag","region","population","subregion"],
@@ -39,7 +35,7 @@ async function getCountries (req, res){
 
 async function getForId(req, res){
   const idCountry = req.params.idCountry;
-  const country= await Country.findByPk(idCountry, { include: Activity}) //findbypkmethod obtains only a single entry from the table, using the provided primary key.
+  const country= await Country.findByPk(idCountry, { include: Activity}) 
   if (!country){return res.json({error: "there is no country with that id"})}
   res.json(country)
 }

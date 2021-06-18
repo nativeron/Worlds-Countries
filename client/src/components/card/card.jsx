@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import style from './card.module.css'
+import s from './card.module.css'
 
 export function Card({flag, name, region, alpha3Code}) {
 	return (
-		<div class={style.card}>
+		<div class={s.card}>
 			<div className="imgn">
-				<img src={flag}className={style.flag}/>
+				<img alt="flag" src={flag}className={s.flag}/>
 			
 			<div className="datos">
 				<div className="nombre">

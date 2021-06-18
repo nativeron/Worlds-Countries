@@ -5,7 +5,7 @@ const {getCountries, getForId} = require("./controllers/country_controller")
 
 const router = Router();
 
-router.use(async (req, res, next) => {
+router.use(async (req, res, next) => {  
   const countries = await Country.count();
   if (!countries) {
     const api = await axios.get(
@@ -15,13 +15,13 @@ router.use(async (req, res, next) => {
       alpha3Code: c.alpha3Code,
       name: c.name,
       flag: c.flag,
-      region:c.region,
+      region:c.region===''?'None':c.region,
       capital: c.capital,
       subregion:c.subregion,
       area: c.area,
       population: c.population,
     }));
-    await Country.bulkCreate(countrymap); //buscar q mierda es esto
+    await Country.bulkCreate(countrymap); 
   }
   next();
 });

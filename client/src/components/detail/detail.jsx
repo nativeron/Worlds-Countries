@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { connect, useDispatch, useSelector } from "react-redux";
+import {  useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
 import { getCountry } from "../../actions";
 import s from './detail.module.css'
@@ -20,7 +20,7 @@ function Detail() {
         <div className={s.details}>
         <div className={s.container}>
             <h1>{country.name}</h1>
-							<img className={s.flag} src={country.flag} />
+							<img alt="flag" className={s.flag} src={country.flag} />
 							<h3>Alpha3Code: {country.alpha3Code}</h3>
 							<p>Capital: {country.capital}</p>
 							<p>Subregión: {country.subregion}</p>
@@ -29,8 +29,7 @@ function Detail() {
 							<p>Population: {country.population} </p>
 
             <div>
-            <h2> TOURIST ACTIVITIES </h2>
-            
+                       
             { country.Activities && 
                     <div>
                         <h2> TOURIST ACTIVITIES </h2>
@@ -38,12 +37,12 @@ function Detail() {
                             return(
                                 <div >
                                     <div>
-                                        <h3>Name: {cont.name}</h3>
-                                        <h3>Season: {cont.season}</h3>
+                                        <h3>{cont.name}</h3>
+                                        <p>Season: {cont.season}</p>
                                     </div>
                                     <div>
-                                        <h3>Duration: {cont.duration}</h3>
-                                        <h3>Difficulty: {cont.difficulty}</h3>
+                                        <p>Duration: {cont.duration}</p>
+                                        <p>Difficulty: {cont.difficulty}</p>
                                     </div>
                                 </div>
                             )
@@ -57,16 +56,6 @@ function Detail() {
 
 }
 
-function mapStateToProps(state) {
-    return{
-        country: state.country
-    }
-}
 
-function mapDispatchToProps(dispatch) {
-    return{
-        getCountry: (alpha3code)=> dispatch(getCountry(alpha3code))
-    }
-}
 
-export default connect(mapStateToProps, mapDispatchToProps)(Detail)
+export default Detail

@@ -4,8 +4,6 @@ export const GET_COUNTRY= 'GET_COUNTRY'
 export const GET_ACTIVITIES= 'GET_ACTIVITIES'
 export const GET_COUNTRIESREGION = 'GET_COUNTRIESREGION'
 export const FILTER= 'FILTER'
-export const AZ = 'AZ'
-export const ZA = 'ZA'
 export const SORT = 'SORT'
 
 
@@ -53,114 +51,49 @@ export function filter(payload){
     }
 }
 
-export function sort(order,opaises) {
-    let paises = [...opaises]
-
-    paises.sort((a, b) => {
-
-
-
-        var nombreA = a.name.toUpperCase()
-        var nombreB = b.name.toUpperCase()
-
+export function sort(order,array) { 
+    let sortArray = [...array]
+    sortArray.sort((a, b) => {
+        var countryA = a.name.toUpperCase()
+        var countryB = b.name.toUpperCase()
 
         if (order === 'AZ') {
-            if (nombreA < nombreB) {
-                return -1;
-            }
-            if (nombreA > nombreB) {
-                return 1
-            }
+            if (countryA < countryB) { return -1 }
+            if (countryA > countryB) { return 1 }
             return 0
         }
         if (order === 'ZA') {
-            if (nombreA < nombreB) {
-                return 1;
-            }
-            if (nombreA > nombreB) {
-                return -1
-            }
+            if (countryA < countryB) { return 1 }
+            if (countryA > countryB) { return -1 }
             return 0
         }
     })
     return function (dispatch) {
-        dispatch({ type: order, payload: paises })
+        dispatch({ type: order, payload: sortArray })
     }
 }
 
-export function populationSort(order, oHabitantes){
-    let habitantes = [...oHabitantes]
-
-    habitantes.sort(function (a, b) {
-
-        var poblacionA = parseFloat(a.population)
-        var poblacionB = parseFloat(b.population)
-
-
+export function populationSort(order, array){
+    let sortArray = [...array]
+    sortArray.sort(function (a, b) {
+        var countryA = parseFloat(a.population)
+        var countryB = parseFloat(b.population)
 
         if (order === 'POP_ASC') {
-            if (poblacionA < poblacionB) {
-                return -1;
-            }
-            if (poblacionA > poblacionB) {
-                return 1
-            }
+            if (countryA < countryB) { return -1 }
+            if (countryA > countryB) { return 1  }
             return 0
         }
         if (order === 'POP_DES') {
-            if (poblacionA < poblacionB) {
-                return 1;
-            }
-            if (poblacionA > poblacionB) {
-                return -1
-            }
+            if (countryA < countryB) { return 1 }
+            if (countryA > countryB) { return -1 }
             return 0
         }
     })
 
-
-
     return function (dispatch) {
-        dispatch({ type: order, payload: habitantes })
+        dispatch({ type: order, payload: sortArray })
     }
 }
 
 
-
-
-// export function sort(order, paises) {
-//     let paisesordenados = paises
-
-// 	paises.sort((a,b) => {
-
-// 		// Para el filtro de población por km2
-// 		// var nombreA = (a.habitantes || 1) / (a.area ||  1);
-//   		// var nombreB = (b.habitantes || 1) / (b.area || 1);
-
-//   		var nombreA = a.name.toUpperCase()
-//   		var nombreB = b.name.toUpperCase()
-
-
-// 		if(order === AZ){
-//             if(nombreA < nombreB){
-//                 return -1;
-//             }
-//             if(nombreA > nombreB){
-//                 return 1
-//             }
-//             return 0
-//         }
-//         if(order === ZA){
-//             if(nombreA < nombreB){
-//                 return 1;
-//             }
-//             if(nombreA > nombreB){
-//                 return -1
-//             }
-//             return 0
-//         }
-// 	})
-// 	return function(dispatch){
-//         dispatch({type: SORT, payload: paisesordenados})
-//     }
-// }

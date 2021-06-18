@@ -8,11 +8,11 @@ import logo from '../../img/logolanding.png'
     return (
         <div> 
         <div className={s.container}>
-          <img src={logo} width='400px'/>
-               <img className={s.world}src={world} width='600px'/>
+          <img alt="logo" src={logo} width='400px'/>
+               <img alt="world" className={s.world}src={world} width='600px'/>
             
                 <Link to={'/countries'}>
-                    <button>ENTER </button>
+                    <button className={s.button} >ENTER </button>
             
             </Link>
             </div>

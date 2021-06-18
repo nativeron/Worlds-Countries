@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { sort, getActivities, populationSort, filter, filtroReg} from '../../actions/index';
-
+import s from './filter.module.css'
 
 
 export default function Filtrar(){
@@ -9,7 +9,7 @@ export default function Filtrar(){
 
 	useEffect(() => {
         dispatch(getActivities())
-    }, [])
+    }, [dispatch])        
 
 	const activities = useSelector(state => state.activities)
     const countries = useSelector(state => state.countries)
@@ -32,7 +32,7 @@ export default function Filtrar(){
 		dispatch(filter(filtered))
   	}
 
-	  function resetAct(e){
+	  function reset(e){
 		  dispatch(filter([]))
 	  }
   	
@@ -43,67 +43,67 @@ export default function Filtrar(){
 	  function handleChangeReg(e) {
 		  filtroReg(e.target.value)
 		  setSelectedRegion(e.target.value)
-		  console.log(e.target.value)
 	  }
 
 	  function handleSubmit(e){
 		  e.preventDefault()
 		  setRegToFilterBy([...regToFilterBy, selectedRegion])
 		  setActToFilterBy([...actToFilterBy, selectedActivity])
-		  
 	  }
 
 	  function handleOrder(e){
 		  dispatch(sort(e.target.value, countries))
 	  }
+	  
 	  function handlePopulation(e){
 		  dispatch(populationSort(e.target.value, countries))
 	  }
 
   	return(
-  		<div >
+  		<div > 
 			  <form onSubmit={handleSubmit}>
-				<p>by activity</p>
+
 				<select onChange={handleChangeAct} name="activities" value={selectedActivity}>
-					<option>any</option>
-					{activities ? activities.map((e)=>(
+					<option>search by activity</option>
+				
+					{ !activities.message ?  activities.map((e)=>(
 						<option value={e.name} key={e.id}>{e.name}</option>
-	  				)): <option>select</option>}
+	  				)) : <button>add</button>  }
 				</select>
 				
-				<p>by region</p>
 				<select onChange={handleChangeReg} name="regions" value={selectedRegion}>
-					<option>select</option>
+					<option value="a" selected>search by continent</option>
 					<option>Asia</option>
 					<option>Americas</option>
 					<option>Europe</option>
 					<option>Oceania</option>
 					<option>Africa</option>
 					<option>Polar</option>
-					<option value={''} >none</option>
+					<option>None</option>
+				
 				</select>
 
 				<div>
-					<button onClick={resetAct}>erase filter</button>
+					<button onClick={reset}>erase filter</button>
 					<button onClick={()=>click() }>filter</button>
 				</div>
 			   </form>
 
+
 			   <form>
-					<p>order by</p>
 					<select onChange={handleOrder}>
-						<option value=''>select</option>
-						<option value= 'AZ'>az</option>
-						<option value= 'ZA'>ZA</option>
+						<option value=''>sort by alphabet</option>
+						<option value= 'AZ'>ascendant</option>
+						<option value= 'ZA'>descendant</option>
 					</select>
 			   </form>
 		  	
 			  <form>
 				  <p>order by</p>
 				  <select onChange={handlePopulation}>
-					  <option value=''>select</option>
-					  <option value= "POP_ASC">pop asc</option>
-					  <option value="POP_DES">pop des</option>
+					  <option value=''>sort by population</option>
+					  <option value= "POP_ASC">ascendant</option>
+					  <option value="POP_DES">descendant</option>
 				  </select>
 			  </form>
 
