@@ -13,13 +13,13 @@ function Nav() {
                     <img alt="logo" src={logo} width='180px' />
                 </Link>
                 <Link to={'/countries'}>
-                    <h4 className={s.h4}>Home </h4>
+                    <h4 className={s.h4}>HOME </h4>
                 </Link>
                 <Link to={'/activity'}>
-                    <h4 className={s.h4}>Create activity </h4>
+                    <h4 className={s.h4}>CREATE ACTIVITY</h4>
                 </Link>
                 <Link to={'/about'}> 
-                   <h4 className={s.h4}>About</h4>
+                   <h4 className={s.h4}>ABOUT</h4>
                 </Link>
                
               

@@ -60,18 +60,19 @@ export default function Filtrar(){
 	  }
 
   	return(
-  		<div > 
-			  <form onSubmit={handleSubmit}>
+  		<div className={s.container} > 
+		  <div className={s.filter}>
+			  <form  onSubmit={handleSubmit}>
 
-				<select onChange={handleChangeAct} name="activities" value={selectedActivity}>
+				<select className={s.select} onChange={handleChangeAct} name="activities" value={selectedActivity}>
 					<option>search by activity</option>
 				
 					{ !activities.message ?  activities.map((e)=>(
 						<option value={e.name} key={e.id}>{e.name}</option>
 	  				)) : <button>add</button>  }
 				</select>
-				
-				<select onChange={handleChangeReg} name="regions" value={selectedRegion}>
+			
+				<select className={s.select} onChange={handleChangeReg} name="regions" value={selectedRegion}>
 					<option value="a" selected>search by continent</option>
 					<option>Asia</option>
 					<option>Americas</option>
@@ -83,24 +84,24 @@ export default function Filtrar(){
 				
 				</select>
 
-				<div>
+				<div className={s.button}>
 					<button onClick={reset}>erase filter</button>
 					<button onClick={()=>click() }>filter</button>
 				</div>
 			   </form>
+			</div>	
 
-
-			   <form>
-					<select onChange={handleOrder}>
+			   <form >
+					<select className={s.az} onChange={handleOrder}>
 						<option value=''>sort by alphabet</option>
 						<option value= 'AZ'>ascendant</option>
 						<option value= 'ZA'>descendant</option>
 					</select>
 			   </form>
 		  	
-			  <form>
-				  <p>order by</p>
-				  <select onChange={handlePopulation}>
+			  <form >
+				  
+				  <select className={s.pop} onChange={handlePopulation}>
 					  <option value=''>sort by population</option>
 					  <option value= "POP_ASC">ascendant</option>
 					  <option value="POP_DES">descendant</option>

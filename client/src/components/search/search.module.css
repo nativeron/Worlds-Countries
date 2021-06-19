@@ -1,0 +1,18 @@
+.icon{
+    color:white;
+    font-size: 25px;
+}
+.container{
+    background-color: black;
+    display: flex;
+    WIDTH: min-content;
+    padding: 5px;
+    border-radius: 5px;
+    
+}
+.input{
+    font-family: monospace;
+    border-radius: 5px;
+    border: none;
+    width: 390px;
+}

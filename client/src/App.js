@@ -1,11 +1,11 @@
 import './App.css';
 import React, { useState } from 'react';
-import {Route} from "react-router-dom";
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Landing from './components/landing/landing';
 import Nav from './components/nav/nav';
 //import Planets from './components/planets/planets';
 
-import { Pagination } from './components/pagination/pagination';
+import { Home } from './components/home/home';
 import detail from './components/detail/detail';
 import Form from './components/form/form';
 
@@ -17,20 +17,22 @@ const [input, setInput] = useState('')
   return (
     <div className="App">
      
-        
+      <Router>
       <Route exact path='/' component={Landing}/>
 
       <Route path= '/countries' component={Nav}/>
-      <Route exact path= '/countries'> <Pagination input={input} setInput={setInput}/> </Route>
-
+      <Route exact path= '/countries'>
+         <Home input={input} setInput={setInput}/> 
+      </Route>
+      
+      <Route path= '/countries/:id' component={detail} />
+      
       <Route path= '/activity' component={Nav}/>
       <Route path='/activity' component={Form} />
       
       <Route path= '/about' component={Nav}/>
 
-      <Route path= '/countries/:id' component={detail} />
-
-      
+      </Router>
       
     </div>
   );

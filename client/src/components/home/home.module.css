@@ -1,0 +1,25 @@
+.container{
+    background-color: white;
+}
+
+.pag{
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    
+}
+
+.search{
+    background-color: blueviolet;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cards{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: stretch;
+    justify-content: center;
+    align-items: center;
+}

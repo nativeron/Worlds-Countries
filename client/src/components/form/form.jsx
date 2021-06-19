@@ -3,6 +3,8 @@ import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux'
 import {getCountries} from '../../actions/index'
 import s from './form.module.css'
+import { Link } from 'react-router-dom';
+import {FaArrowLeft} from 'react-icons/fa'
 
 export default function Form() {
 
@@ -77,8 +79,16 @@ export default function Form() {
 
 
       return (
-        <form onSubmit={handlerSubmit}>
-          <div id="frm"><div>
+        <form className={s.form} onSubmit={handlerSubmit}>
+          <div className={s.back}>
+          <Link to={'/countries'}>
+            <button className={s.button} ><FaArrowLeft/> </button>
+            
+            </Link>
+
+          </div>
+          <div className={s.container}>
+            <div>
             <h1>Create activity</h1>
             <p>Name:</p>                      
             <input  id= "name"
@@ -121,7 +131,7 @@ export default function Form() {
                             <option value={e.alpha3Code} >{e.name}</option>)
                         )}
                     </select>
-                </div>j
+                </div>
                 <div >
                     {   
                         input.country.map(x => (

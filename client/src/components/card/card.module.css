@@ -1,8 +1,15 @@
 .card{
-    width: 10%;
-    background-color: hotpink;
+    width: 200px;
+    background-color: darkgrey;
+    margin: 10px;
+    border-radius: 5px;
 }
 
 .flag{
-    width: 200px;
+    height: 100px;
+}
+.info{
+    display: inline-block;
+    text-decoration: none;
+    color: white;
 }

@@ -1,0 +1,13 @@
+.container{
+    background-image: url('../../img/alien.png');
+    background-color: white;
+    background-repeat: no-repeat;
+    background-size: 30%;
+    background-position-y:bottom;
+    width: 70%;
+}
+.form{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}

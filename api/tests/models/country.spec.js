@@ -18,5 +18,25 @@ describe('Country model', () => {
         Country.create({ name: 'Argentina' });
       });
     });
+    describe('capital', () => {
+      it('should throw an error if capital is null', (done) => {
+        Country.create({})
+          .then(() => done(new Error('It requires a valid capital')))
+          .catch(() => done());
+      });
+      it('should work when its a valid capital', () => {
+        Country.create({ capital: 'Buenos Aires' });
+      });
+    });
+    describe('area', () => {
+      it('should be an integer', () => {
+        Country.create({ 
+          name: 'Argentina',
+          area: 'Argentina' })
+        .then(() => done(new Error('Area should not accept a string')))
+          .catch(() => done());
+      });
+    });
+    
   });
 });
