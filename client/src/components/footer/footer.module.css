@@ -1,0 +1,14 @@
+.alien{
+    width: 80px;
+}
+.icon{
+    font-size: 40px;
+    color: white;
+    position: absolute ;
+}
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+}

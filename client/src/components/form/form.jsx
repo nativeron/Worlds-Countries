@@ -13,7 +13,6 @@ export default function Form() {
     const countries = useSelector(state => state.countries)
 
     const [errors, setErrors] = useState({}); 
-    
     const [input, setInput] = useState({ 
       name: '',             
       difficulty: '',       
@@ -25,8 +24,6 @@ export default function Form() {
     useEffect(()=>{
         dispatch(getCountries())
     }, [dispatch])
-
-
 
     const handleInputChange = function(e) {
       setInput({
@@ -77,92 +74,85 @@ export default function Form() {
         return names;
     }
 
-
       return (
         <form className={s.form} onSubmit={handlerSubmit}>
           <div className={s.back}>
-          <Link to={'/countries'}>
-            <button className={s.button} ><FaArrowLeft/> </button>
-            
+            <Link to={'/countries'}>
+              <FaArrowLeft className={s.arrow}/>             
             </Link>
-
           </div>
+
           <div className={s.container}>
             <div>
-            <h1>Create activity</h1>
-            <p>Name:</p>                      
-            <input  id= "name"
-            type="text" placeholder='name' name="name" onChange={handleInputChange} value={input.name} />
-            {errors.name && (<p >{errors.name}</p>)}
-          </div>
-
-
-          <div>
-            <p>Difficulty:</p>
-            <input min='1' max='5' id="difficulty" placeholder='range between 1 - 5' type="number" name="difficulty" value={input.difficulty} 
-            onChange={handleInputChange} /> {errors.difficulty && (<p >{errors.difficulty}</p>)}
-          </div>
-         
-          <div>
-            <p>Season:</p>
-          <select name='season' onChange={handleInputChange} required>
-                <option className='button'></option>
-                <option value='summer' className='button'>summer</option>
-                <option value='winter' className='button'>winter</option>
-                <option value='autumn' className='button'>autumn</option>
-                <option value='spring' className='button'>spring</option>
-              </select>
+              <h1>Create tourist activity</h1>
+              <p>Name:</p>                      
+              <input  id= "name" className={s.input}
+                type="text" placeholder='What is this activity called?' name="name" 
+                onChange={handleInputChange} value={input.name} />
+                {errors.name && (<p className={s.p}>{errors.name}</p>)}
           </div>
 
           <div>
             <p>Duration:</p>
-            <input id="duration" placeholder='duration' type="number" min='1' name="duration" value={input.duration} 
-            onChange={handleInputChange} /> {errors.duration && (<p >{errors.duration}</p>)}
+            <input className={s.input} id="duration" placeholder='How many minutes does it last?' 
+              type="number" min='1' name="duration" value={input.duration} 
+              onChange={handleInputChange} /> {errors.duration && (<p >{errors.duration}</p>)}
           </div>
 
           <div>
-                    <p>Countries:</p>
-                    <select name="countries" onChange={(e) => handleSelect(e)}  required value={input.country}>
-                        <option>
-                            Select
-                    </option>
-
-                        {countries.map((e) => (
-                            <option value={e.alpha3Code} >{e.name}</option>)
-                        )}
-                    </select>
-                </div>
-                <div >
-                    {   
-                        input.country.map(x => (
-                            <p>{getOptions(x)} <button type='button' onClick={(e) => deleteTemp(e, x)}>x</button></p>
-                        ))
-                    }
-                </div>
-            
-
-
-          <div>
-            <button type='submit'>CREATE</button>
-                </div>
+            <p>Countries:</p>
+            <select className={s.input} name="countries" onChange={(e) => handleSelect(e)}  required value={input.country}>
+               <option> In which countries is it carried out? </option>
+                  {countries.map((e) => ( 
+                  <option value={e.alpha3Code}>  {e.name}  </option>
+                  ))}
+            </select>
           </div>
-        </form>
-    
-    
+
+          <div className={s.countries}>
+              { input.country.map(x => (
+                <div className={s.close}>
+                  <p>{getOptions(x)} 
+                    <button className={s.button} type='button' onClick={(e) => deleteTemp(e, x)}>x </button>
+                  </p>
+                </div>
+                ))}
+          </div>
+          
+          <div>
+            <p>Season:</p>
+            <select className={s.input} name='season' onChange={handleInputChange} required>
+                <option className='button'>'In which season does this activity take place?'</option>
+                <option value='summer' className='button'>summer</option>
+                <option value='winter' className='button'>winter</option>
+                <option value='autumn' className='button'>autumn</option>
+                <option value='spring' className='button'>spring</option>
+            </select>
+          </div>
         
+          <div>
+            <p>Difficulty:</p>
+            <input className={s.input} min='1' max='5' id="difficulty" placeholder='range between 1 - 5' 
+              type="number" name="difficulty" value={input.difficulty} 
+              onChange={handleInputChange} /> {errors.difficulty && (<p >{errors.difficulty}</p>)}
+          </div>
+
+          <div>
+            <button className={s.create} type='submit'>CREATE</button>
+          </div>
+        </div>
+        </form>
       )
     }
     
-
     export function validate(input) {   //funcion de valudacion
       let errors = {};
       if (!input.name) {
-        errors.name = 'name is required';  //si no hay input
+        errors.name = 'name is required'; 
       }
       if(!input.season){
         errors.season= 'season is required'
       }
-      
-    
+          
       return errors;
     };

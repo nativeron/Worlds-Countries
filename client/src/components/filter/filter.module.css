@@ -1,5 +1,4 @@
 .container{
-    background-color:red;
     padding:8px;
     display: flex;
 }
@@ -8,16 +7,19 @@
     font-family: monospace;
     border-radius: 5px;
     border: none;
+    background-color: #c4e24f;
 }
 
 .az{
     font-family: monospace;
     border-radius: 5px;
     border: none;
+    background-color: #c4e24f;
 }
 
 .pop{
     font-family: monospace;
     border-radius: 5px;
     border: none;
+    background-color: #c4e24f;
 }

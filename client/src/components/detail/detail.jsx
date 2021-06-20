@@ -3,6 +3,8 @@ import {  useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
 import { getCountry } from "../../actions";
 import s from './detail.module.css'
+import {FaArrowLeft} from "react-icons/fa"
+import {Link} from 'react-router-dom'
 
 
 
@@ -18,6 +20,11 @@ function Detail() {
 
     return(
         <div className={s.details}>
+            <div className={s.back}>
+            <Link to={'/countries'}>
+              <FaArrowLeft className={s.arrow}/>             
+            </Link>
+          </div>
         <div className={s.container}>
             <h1>{country.name}</h1>
 							<img alt="flag" className={s.flag} src={country.flag} />
@@ -33,7 +40,7 @@ function Detail() {
             { country.Activities && 
                     <div>
                         <h2> TOURIST ACTIVITIES </h2>
-                        {country.Activities.map( cont => {
+                        {country.Activities.length ? country.Activities.map( cont => {
                             return(
                                 <div >
                                     <div>
@@ -41,12 +48,12 @@ function Detail() {
                                         <p>Season: {cont.season}</p>
                                     </div>
                                     <div>
-                                        <p>Duration: {cont.duration}</p>
+                                        <p>Duration: {cont.duration} min</p>
                                         <p>Difficulty: {cont.difficulty}</p>
                                     </div>
                                 </div>
                             )
-                        })}
+                        }) : <p>You didn't add activities in this country</p>}
                     </div>
                 }
             </div>

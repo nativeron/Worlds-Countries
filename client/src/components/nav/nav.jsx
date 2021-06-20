@@ -5,13 +5,15 @@ import { Link } from 'react-router-dom';
 
 
 
+
 function Nav() {
     return (
         <div>
             <nav className={s.nav}>
                 <Link to={'/'}>
                     <img alt="logo" src={logo} width='180px' />
-                </Link>
+                </Link> 
+                
                 <Link to={'/countries'}>
                     <h4 className={s.h4}>HOME </h4>
                 </Link>

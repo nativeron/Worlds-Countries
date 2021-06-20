@@ -1,6 +1,4 @@
-.container{
-    background-color: white;
-}
+
 
 .pag{
     display: flex;
@@ -10,10 +8,13 @@
 }
 
 .search{
-    background-color: blueviolet;
+    background-color: white;
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 90%;
+    border-radius: 14px;
+    margin-bottom: 8px;
 }
 
 .cards{
@@ -22,4 +23,12 @@
     align-content: stretch;
     justify-content: center;
     align-items: center;
+    width: 90%;
+    background-color: white;
+    border-radius: 10px;
+    
 }
+.arrow{
+    color:white;
+    font-size: 30px;
+    }

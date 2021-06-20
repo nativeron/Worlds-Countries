@@ -1,13 +1,68 @@
 .container{
-    background-image: url('../../img/alien.png');
+    background-image: url('../../img/alien2.png');
     background-color: white;
     background-repeat: no-repeat;
     background-size: 30%;
     background-position-y:bottom;
     width: 70%;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
 }
 .form{
     display: flex;
     align-items: flex-start;
+    justify-content: space-evenly;
+    margin-top: 30px;
+}
+
+.arrow{
+color:white;
+font-size: 30px;
+}
+.input{
+    border-radius: 10px;
+    border: groove;
+    text-align: -webkit-center;
+    width: 300px;
+}
+.countries{
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+.name{
+    display: flex;
+}
+.p{
+    color: red;
+    font-size: smaller;
+    margin-block: auto;
+}
+.button{
+    color: white;
+    background-color: crimson;
+    border: none;
+    border-radius: 6px;
+    font-size: 12px;
+}
+.close{
+    background-color: gold;
+    border-radius: 9px;
+}
+.create{
+    color: blanchedalmond;
+    text-decoration: none;
+    font-size: 1.5em;
+    border-radius: 10px;
+    border: none;
+    background-color: #2a2357;
+    font-family: monospace;
+    margin-top: 10px;
+}
+.create:hover{
+    box-shadow: 0 0 30px #61dafb;
 }

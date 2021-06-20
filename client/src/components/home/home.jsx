@@ -5,8 +5,12 @@ import Card from '../card/card';
 import s from './home.module.css'
 import SearchBar from '../search/search';
 import Filtrar from '../filter/filter'
-import { BiLeftArrow } from 'react-icons/bi'
-import {BiRightArrow } from 'react-icons/bi'
+import {FaArrowLeft} from 'react-icons/fa'
+import {FaArrowRight} from 'react-icons/fa'
+import loading from '../../img/gif.gif'
+import Footer from '../footer/footer';
+//import Planets from '../planets/planets';
+
 
 export function Home({input, setInput}) {
 
@@ -34,7 +38,7 @@ export function Home({input, setInput}) {
 			return(
 				<Card name={pais.name} region={pais.region} flag={pais.flag} alpha3Code={pais.alpha3Code}/>
 			)
-		}) : <p>nohay</p>
+		}) : <img alt="landing" src={loading}/> 
 
 	}
 
@@ -42,25 +46,39 @@ export function Home({input, setInput}) {
 
 		
         <div className={s.container}>
+			
 			<div className={s.search}>
 				<SearchBar setInput={setInput} input={input}/>
 				<Filtrar/>
 			</div>
 			<div className={s.pag}>
-			<div><button onClick={() => setNumpag(numpag - 1)}><BiLeftArrow/></button></div>
-			<div className={s.cards}>
+				{console.log(displaycountries(countries))}
+
+			<div>
 				{
-				filteredcountries.length > 0 ? displaycountries(filteredcountries) : displaycountries(countries)
+				numpag===1 ? <button disabled={true}><FaArrowLeft className={s.arrowf}/></button> :
+				<button onClick={() => setNumpag(numpag - 1)}><FaArrowLeft className={s.arrow}/></button>
+			}
+				
+			</div>
+
+			<div className={s.cards}>
+			
+				{
+				filteredcountries.length > 0 ? displaycountries(filteredcountries) : 
+				displaycountries(countries)
 				}
 			</div>
-			<div><button onClick={() => setNumpag(numpag + 1)}><BiRightArrow/></button></div>
-			<div className="paginationBtns">
-			</div>	
-					
-			        
-			        
-		        </div>
- 
+			<div>
+				{numpag===25 ? <button disabled={true}><FaArrowRight className={s.arrowf}/></button> :
+				<button onClick={() => setNumpag(numpag + 1)}><FaArrowRight className={s.arrow}/></button>
+				}
+				
+				
+			</div>
+					        		        
+		  </div>
+				<Footer/>
         </div>
     )
 };

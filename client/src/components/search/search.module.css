@@ -1,9 +1,8 @@
 .icon{
-    color:white;
+    color:#97c610;
     font-size: 25px;
 }
 .container{
-    background-color: black;
     display: flex;
     WIDTH: min-content;
     padding: 5px;
@@ -14,5 +13,5 @@
     font-family: monospace;
     border-radius: 5px;
     border: none;
-    width: 390px;
+    background-color: #97c610;
 }
