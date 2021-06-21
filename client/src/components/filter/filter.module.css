@@ -7,19 +7,31 @@
     font-family: monospace;
     border-radius: 5px;
     border: none;
-    background-color: #c4e24f;
+    background-color: whitesmoke;
+    color: black;
+    margin: 4px;
+    width: -webkit-fill-available;
+    height: 22px;
 }
 
 .az{
     font-family: monospace;
     border-radius: 5px;
     border: none;
-    background-color: #c4e24f;
+    background-color: whitesmoke;
+    color: black;
+    margin: 4px;
+    width: -webkit-fill-available;
+    height: 22px;
 }
 
-.pop{
-    font-family: monospace;
-    border-radius: 5px;
+.button{
+    background-color: #330058;
+    color: white;
     border: none;
-    background-color: #c4e24f;
+    font-family: monospace;
+    border-radius: 7px;
+    padding: 6px;
+    margin: 3px;
+    font-size: 15px;
 }

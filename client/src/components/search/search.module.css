@@ -1,10 +1,10 @@
 .icon{
-    color:#97c610;
-    font-size: 25px;
+    color:black;
+    font-size: 30px;
 }
 .container{
     display: flex;
-    WIDTH: min-content;
+    
     padding: 5px;
     border-radius: 5px;
     
@@ -13,5 +13,11 @@
     font-family: monospace;
     border-radius: 5px;
     border: none;
-    background-color: #97c610;
+    width: 400px;
+    background-color: paleturquoise;
+}
+.input::placeholder{
+    color: black;
+    text-align: center;
+    font-size: 15px;
 }

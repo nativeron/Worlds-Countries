@@ -9,9 +9,20 @@
     background-position-y:bottom;
     background-position-x: right;
 }
-
+.container span{
+    color: rebeccapurple;
+    font-weight: 600;
+}
+.container h1{
+    text-decoration: underline;
+    text-decoration-style: double;
+    text-decoration-color: #96c517;
+}
 .flag{
     width: 30%;
+}
+.sub{
+    background-color: red;
 }
 
 .details{

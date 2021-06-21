@@ -2,6 +2,7 @@ import React from 'react';
 import s from './nav.module.css'
 import logo from '../../img/logolanding.png'
 import { Link } from 'react-router-dom';
+import world from '../../img/world.gif'
 
 
 
@@ -12,6 +13,7 @@ function Nav() {
             <nav className={s.nav}>
                 <Link to={'/'}>
                     <img alt="logo" src={logo} width='180px' />
+                    <img alt="world" src={world} width='140px' />
                 </Link> 
                 
                 <Link to={'/countries'}>

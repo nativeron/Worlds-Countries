@@ -11,7 +11,7 @@ describe('Country model', () => {
     describe('name', () => {
       it('should throw an error if name is null', (done) => {
         Country.create({})
-          .then(() => done(new Error('It requires a valid name')))
+          .then(() => done(new Error('invalid name ')))
           .catch(() => done());
       });
       it('should work when its a valid name', () => {
@@ -21,11 +21,8 @@ describe('Country model', () => {
     describe('capital', () => {
       it('should throw an error if capital is null', (done) => {
         Country.create({})
-          .then(() => done(new Error('It requires a valid capital')))
+          .then(() => done(new Error('invalids')))
           .catch(() => done());
-      });
-      it('should work when its a valid capital', () => {
-        Country.create({ capital: 'Buenos Aires' });
       });
     });
     describe('area', () => {
@@ -36,7 +33,18 @@ describe('Country model', () => {
         .then(() => done(new Error('Area should not accept a string')))
           .catch(() => done());
       });
+      it('should work when there is no area or population data', ()=>{
+        Country.create({area:"", population:""})
+      })
     });
+    describe('alpha3Code', ()=>{
+      it('hould throw an error if alpha3Code have more than three characters or is null',()=>{
+        Country.create({ alpha3Code: "ARGE", name: 'Argentina' })
+        .then(() => done(new Error('invalid')))
+        Country.create({ alpha3Code: "", name: 'Argentina' })
+        .then(() => done(new Error('invalid')))
+      })
+    })
     
   });
 });

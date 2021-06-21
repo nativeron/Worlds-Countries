@@ -26,14 +26,16 @@ function Detail() {
             </Link>
           </div>
         <div className={s.container}>
+    
             <h1>{country.name}</h1>
+            
 							<img alt="flag" className={s.flag} src={country.flag} />
-							<h3>Alpha3Code: {country.alpha3Code}</h3>
-							<p>Capital: {country.capital}</p>
-							<p>Subregión: {country.subregion}</p>
-							<p>Región: {country.region}</p>
-							<p>Area: {country.area}km2 </p>
-							<p>Population: {country.population} </p>
+							<p><span>alpha3Code:</span> {country.alpha3Code}</p>
+							<p><span>Capital:</span> {country.capital}</p>
+							<p><span>Subregión:</span> {country.subregion}</p>
+							<p><span>Región:</span> {country.region}</p>
+							<p><span>Area: </span>{country.area}km2 </p>
+							<p><span>Population:</span> {country.population} </p>
 
             <div>
                        

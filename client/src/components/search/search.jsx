@@ -4,6 +4,9 @@ import { BiSearchAlt } from 'react-icons/bi'
 
 function SearchBar({ input, setInput }) {
 
+
+
+    
     return (
         <div >
             <form className={s.form} onSubmit={(e) => e.preventDefault()} >

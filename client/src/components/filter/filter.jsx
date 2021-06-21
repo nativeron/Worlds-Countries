@@ -52,11 +52,13 @@ export default function Filtrar(){
 	  }
 
 	  function handleOrder(e){
-		  dispatch(sort(e.target.value, countries))
+		  dispatch(sort(e.target.value, countries)) 
+		  
 	  }
 	  
 	  function handlePopulation(e){
-		  dispatch(populationSort(e.target.value, countries))
+		  
+		  dispatch(populationSort(e.target.value, countries)) 
 	  }
 
   	return(
@@ -65,7 +67,7 @@ export default function Filtrar(){
 			  <form  onSubmit={handleSubmit}>
 
 				<select className={s.select} onChange={handleChangeAct} name="activities" value={selectedActivity}>
-					<option>search by activity</option>
+					<option> by activity</option>
 				
 					{ !activities.message ?  activities.map((e)=>(
 						<option value={e.name} key={e.id}>{e.name}</option>
@@ -73,7 +75,7 @@ export default function Filtrar(){
 				</select>
 			
 				<select className={s.select} onChange={handleChangeReg} name="regions" value={selectedRegion}>
-					<option value="a" selected>search by continent</option>
+					<option value="a" selected> by continent</option>
 					<option>Asia</option>
 					<option>Americas</option>
 					<option>Europe</option>
@@ -84,25 +86,23 @@ export default function Filtrar(){
 				
 				</select>
 
-				<div className={s.button}>
-					<button onClick={reset}>erase filter</button>
-					<button onClick={()=>click() }>filter</button>
+				<div>
+					<button  className={s.button} onClick={reset}>erase filter</button>
+					<button className={s.button} onClick={()=>click() }>filter</button>
 				</div>
 			   </form>
 			</div>	
 
 			   <form >
 					<select className={s.az} onChange={handleOrder}>
-						<option value=''>sort by alphabet</option>
+						<option value=''>by alphabet</option>
 						<option value= 'AZ'>ascendant</option>
 						<option value= 'ZA'>descendant</option>
 					</select>
-			   </form>
-		  	
-			  <form >
+			   
 				  
-				  <select className={s.pop} onChange={handlePopulation}>
-					  <option value=''>sort by population</option>
+				  <select className={s.az} onChange={handlePopulation}>
+					  <option value=''>by population</option>
 					  <option value= "POP_ASC">ascendant</option>
 					  <option value="POP_DES">descendant</option>
 				  </select>

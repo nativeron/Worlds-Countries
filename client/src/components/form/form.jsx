@@ -60,8 +60,8 @@ export default function Form() {
        setInput((prev) => ({ ...prev, country: [...prev.country, e.target.value] }))
     }
 
-    function deleteTemp(e, t) {
-        setInput((prev) => ({ ...prev, country: prev.country.filter(temp => temp !== t) }))
+    function deleteCountry(e, c) {
+        setInput((prev) => ({ ...prev, country: prev.country.filter(temp => temp !== c) }))
     }
     
     function getOptions(arr) {
@@ -85,7 +85,7 @@ export default function Form() {
           <div className={s.container}>
             <div>
               <h1>Create tourist activity</h1>
-              <p>Name:</p>                      
+              <label for="name">Name:</label>  <br/>                   
               <input  id= "name" className={s.input}
                 type="text" placeholder='What is this activity called?' name="name" 
                 onChange={handleInputChange} value={input.name} />
@@ -93,15 +93,15 @@ export default function Form() {
           </div>
 
           <div>
-            <p>Duration:</p>
+          <label for="duration">Duration:</label>  <br/> 
             <input className={s.input} id="duration" placeholder='How many minutes does it last?' 
               type="number" min='1' name="duration" value={input.duration} 
-              onChange={handleInputChange} /> {errors.duration && (<p >{errors.duration}</p>)}
+              onChange={handleInputChange} /> 
           </div>
 
           <div>
-            <p>Countries:</p>
-            <select className={s.input} name="countries" onChange={(e) => handleSelect(e)}  required value={input.country}>
+          <label for="countries">Countries:</label>  <br/> 
+            <select id="countries" className={s.input} name="countries" onChange={(e) => handleSelect(e)}  required value={input.country}>
                <option> In which countries is it carried out? </option>
                   {countries.map((e) => ( 
                   <option value={e.alpha3Code}>  {e.name}  </option>
@@ -113,15 +113,15 @@ export default function Form() {
               { input.country.map(x => (
                 <div className={s.close}>
                   <p>{getOptions(x)} 
-                    <button className={s.button} type='button' onClick={(e) => deleteTemp(e, x)}>x </button>
+                    <button className={s.button} type='button' onClick={(e) => deleteCountry(e, x)}>x </button>
                   </p>
                 </div>
                 ))}
           </div>
           
           <div>
-            <p>Season:</p>
-            <select className={s.input} name='season' onChange={handleInputChange} required>
+          <label for="season">Season:</label>  <br/> 
+            <select id="season" className={s.input} name='season' onChange={handleInputChange} required>
                 <option className='button'>'In which season does this activity take place?'</option>
                 <option value='summer' className='button'>summer</option>
                 <option value='winter' className='button'>winter</option>
@@ -131,10 +131,10 @@ export default function Form() {
           </div>
         
           <div>
-            <p>Difficulty:</p>
+          <label for="difficulty">Difficulty:</label>  <br/> 
             <input className={s.input} min='1' max='5' id="difficulty" placeholder='range between 1 - 5' 
               type="number" name="difficulty" value={input.difficulty} 
-              onChange={handleInputChange} /> {errors.difficulty && (<p >{errors.difficulty}</p>)}
+              onChange={handleInputChange} /> 
           </div>
 
           <div>

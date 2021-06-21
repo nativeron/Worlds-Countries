@@ -7,7 +7,7 @@ import SearchBar from '../search/search';
 import Filtrar from '../filter/filter'
 import {FaArrowLeft} from 'react-icons/fa'
 import {FaArrowRight} from 'react-icons/fa'
-import loading from '../../img/gif.gif'
+import loading from '../../img/alien5.png'
 import Footer from '../footer/footer';
 //import Planets from '../planets/planets';
 
@@ -33,12 +33,12 @@ export function Home({input, setInput}) {
 	function displaycountries(array) {
 
 		let countriestodisplay = array.filter((p)=> p.name.toLowerCase().includes(input.toLowerCase())).slice(conteoinicial,conteofinal)
-
+		
 		return countriestodisplay.length ? countriestodisplay.map((pais)=>{
 			return(
 				<Card name={pais.name} region={pais.region} flag={pais.flag} alpha3Code={pais.alpha3Code}/>
 			)
-		}) : <img alt="landing" src={loading}/> 
+		}) : <img alt="loading" src={loading}/> 
 
 	}
 
@@ -56,8 +56,8 @@ export function Home({input, setInput}) {
 
 			<div>
 				{
-				numpag===1 ? <button disabled={true}><FaArrowLeft className={s.arrowf}/></button> :
-				<button onClick={() => setNumpag(numpag - 1)}><FaArrowLeft className={s.arrow}/></button>
+				numpag===1 ? <button className={s.buttond} disable={true}><FaArrowLeft className={s.arrow}/></button> :
+				<button className={s.button} onClick={() => setNumpag(numpag - 1)}><FaArrowLeft className={s.arrow}/></button>
 			}
 				
 			</div>
@@ -70,8 +70,8 @@ export function Home({input, setInput}) {
 				}
 			</div>
 			<div>
-				{numpag===25 ? <button disabled={true}><FaArrowRight className={s.arrowf}/></button> :
-				<button onClick={() => setNumpag(numpag + 1)}><FaArrowRight className={s.arrow}/></button>
+				{numpag===25 ? <button className={s.buttond} disabled={true}><FaArrowRight className={s.arrow}/></button>:
+				<button className={s.button} onClick={() => setNumpag(numpag + 1)}><FaArrowRight className={s.arrow}/></button>
 				}
 				
 				

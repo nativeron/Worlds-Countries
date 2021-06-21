@@ -5,17 +5,20 @@ import s from './card.module.css'
 export function Card({flag, name, region, alpha3Code}) {
 	return (
 		<div class={s.card}>
+			
 			<Link to={`/countries/${alpha3Code}`}>
 			<div className="imgn">
 				<img alt="flag" src={flag}className={s.flag}/>
 			</div>
+			</Link>
 			<div >
-				<div>
-					<p className="info">{name}</p>
-					<p className="info">{region}</p>
+				<div className="name">
+					{name}
+					
+				<div className={s.region}>{region}</div>
 				</div>
 			</div>
-			</Link>
+			
 		</div>
 	)
 }
