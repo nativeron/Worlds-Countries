@@ -9,7 +9,6 @@ import {FaArrowLeft} from 'react-icons/fa'
 import {FaArrowRight} from 'react-icons/fa'
 import loading from '../../img/alien5.png'
 import Footer from '../footer/footer';
-//import Planets from '../planets/planets';
 
 
 export function Home({input, setInput}) {
@@ -52,8 +51,6 @@ export function Home({input, setInput}) {
 				<Filtrar/>
 			</div>
 			<div className={s.pag}>
-				{console.log(displaycountries(countries))}
-
 			<div>
 				{
 				numpag===1 ? <button className={s.buttond} disable={true}><FaArrowLeft className={s.arrow}/></button> :
@@ -70,7 +67,8 @@ export function Home({input, setInput}) {
 				}
 			</div>
 			<div>
-				{numpag===25 ? <button className={s.buttond} disabled={true}><FaArrowRight className={s.arrow}/></button>:
+				{console.log(displaycountries(countries).length)}
+				{displaycountries(countries).length<10 || numpag===25? <button className={s.buttond} disabled={true}><FaArrowRight className={s.arrow}/></button>:
 				<button className={s.button} onClick={() => setNumpag(numpag + 1)}><FaArrowRight className={s.arrow}/></button>
 				}
 				

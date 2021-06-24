@@ -13,11 +13,7 @@
     color: rebeccapurple;
     font-weight: 600;
 }
-.container h1{
-    text-decoration: underline;
-    text-decoration-style: double;
-    text-decoration-color: #96c517;
-}
+
 .flag{
     width: 30%;
 }
@@ -33,4 +29,12 @@
 .arrow{
     color:white;
     font-size: 30px;
+    }
+
+    .arrow:hover{
+        box-shadow: 0px 1px 13px 2px rgb(100, 236, 59);
+        border-radius: 50px;
+    }
+    .arrow:active{
+        box-shadow: 0px 8px 4px 2px rgb(5 211 226 / 90%);
     }

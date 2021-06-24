@@ -13,6 +13,12 @@
     width: -webkit-fill-available;
     height: 22px;
 }
+.select:hover{
+    background-color: gainsboro;
+}
+.select:active{
+    background-color: rgb(169, 236, 248);
+}
 
 .az{
     font-family: monospace;
@@ -24,7 +30,12 @@
     width: -webkit-fill-available;
     height: 22px;
 }
-
+.az:hover{
+    background-color: gainsboro;
+}
+.az:active{
+    background-color: rgb(169, 236, 248);
+}
 .button{
     background-color: #330058;
     color: white;
@@ -34,4 +45,14 @@
     padding: 6px;
     margin: 3px;
     font-size: 15px;
+}
+.button:hover{
+    box-shadow: -1px 6px 10px 0px #56f027;
+    background-color: aquamarine;
+    color: black;
+}
+.button:active{
+    box-shadow: -1px 6px 10px 0px #ce3d04;
+    background-color: rgb(221, 207, 13);
+    color: black;
 }

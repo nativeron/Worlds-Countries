@@ -25,7 +25,7 @@ async function getCountries (req, res){
   }
 
  countries = await Country.findAll({
-    attributes: ["alpha3Code", "name", "flag","region","population","subregion"],
+    attributes: ["alpha3Code", "name", "flag","region","population","subregion",],
     include: { model: Activity, required: false },
   
   });
@@ -35,7 +35,7 @@ async function getCountries (req, res){
 
 async function getForId(req, res){
   const idCountry = req.params.idCountry;
-  const country= await Country.findByPk(idCountry, { include: Activity}) 
+  const country= await Country.findByPk(idCountry, { include: Activity, required: false}) 
   if (!country){return res.json({error: "there is no country with that id"})}
   res.json(country)
 }

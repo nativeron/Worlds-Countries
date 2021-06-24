@@ -14,7 +14,7 @@ function Detail() {
     const country = useSelector(state=> state.country)
     const { id } = useParams()
 
-    useEffect(() => {
+    useEffect(() => { //despues de renderizarse hace
         dispatch(getCountry(id))
     }, [dispatch, id])
 

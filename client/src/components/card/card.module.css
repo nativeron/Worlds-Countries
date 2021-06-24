@@ -9,6 +9,10 @@
     font-size: 20px;
     line-height: 27px;
 }
+.card:hover{
+    box-shadow: 0px 8px 4px 2px rgb(5 211 226 / 90%);
+}
+
 
 .region{
     color: rgb(117, 45, 177);

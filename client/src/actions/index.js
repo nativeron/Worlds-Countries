@@ -78,7 +78,7 @@ export function populationSort(order, array){
     sortArray.sort(function (a, b) {
         var countryA = parseFloat(a.population)
         var countryB = parseFloat(b.population)
-
+//Convierte (parsea) un argumento de tipo cadena y devuelve un número de punto flotante.
         if (order === 'POP_ASC') {
             if (countryA < countryB) { return -1 }
             if (countryA > countryB) { return 1  }

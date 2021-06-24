@@ -47,10 +47,22 @@ font-size: 30px;
     border-radius: 6px;
     font-size: 12px;
 }
-.close{
-    background-color: gold;
-    border-radius: 9px;
+.button:hover{
+    color:black;
+    background-color: chartreuse;
 }
+.close{
+    background-color: cadetblue;
+    border-radius: 9px;
+    color: white;
+    height: min-content;
+    width: fit-content;
+}
+.close:hover{
+    background-color: #2a2357;
+    box-shadow: -1px 6px 6px 0px #5dc8ef;
+}
+
 .create{
     color: blanchedalmond;
     text-decoration: none;

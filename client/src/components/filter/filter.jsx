@@ -16,21 +16,22 @@ export default function Filtrar(){
 
 	let [selectedActivity, setSelectedActivity] = useState('')
 	let [actToFilterBy, setActToFilterBy] = useState([])
+
 	let [selectedRegion, setSelectedRegion] = useState('')
 	let [regToFilterBy, setRegToFilterBy] = useState([])
 
-	function click() {
-		let  filtered= []
-		countries.forEach((p)=>{
-			p.Activities.map(a=> a.name === selectedActivity ? 
-				filtered.push(p) : null
-				)
-		})
-		countries.forEach((p)=>{
-			if (p.region === selectedRegion)filtered.push(p)
-		})
-		dispatch(filter(filtered))
-  	}
+	// function click() {
+	// 	let  filtered= []
+	// 	countries.forEach((p)=>{
+	// 		p.Activities.map(a=> a.name === selectedActivity ? 
+	// 			filtered.push(p) : null
+	// 			)
+	// 	})
+	// 	countries.forEach((p)=>{
+	// 		if (p.region === selectedRegion)filtered.push(p)
+	// 	})
+	// 	dispatch(filter(filtered))
+  	// }
 
 	  function reset(e){
 		  dispatch(filter([]))
@@ -38,10 +39,17 @@ export default function Filtrar(){
   	
 	  function handleChangeAct(e){
 		  setSelectedActivity(e.target.value)
+		  let  filtered= []
+		countries.forEach((p)=>{
+			p.Activities.map(a=> a.name === selectedActivity ? 
+				filtered.push(p) : null
+				)
+		})
+		dispatch(filter(filtered))
 	  }
 
 	  function handleChangeReg(e) {
-		  filtroReg(e.target.value)
+		  dispatch(filtroReg(e.target.value))
 		  setSelectedRegion(e.target.value)
 	  }
 
@@ -71,7 +79,7 @@ export default function Filtrar(){
 				
 					{ !activities.message ?  activities.map((e)=>(
 						<option value={e.name} key={e.id}>{e.name}</option>
-	  				)) : <button>add</button>  }
+	  				)) : <p></p> }
 				</select>
 			
 				<select className={s.select} onChange={handleChangeReg} name="regions" value={selectedRegion}>
@@ -87,8 +95,8 @@ export default function Filtrar(){
 				</select>
 
 				<div>
-					<button  className={s.button} onClick={reset}>erase filter</button>
-					<button className={s.button} onClick={()=>click() }>filter</button>
+					 <button  className={s.button} onClick={reset}>erase filter</button>
+					{/*<button className={s.button} onClick={()=>click() }>filter</button> */}
 				</div>
 			   </form>
 			</div>	

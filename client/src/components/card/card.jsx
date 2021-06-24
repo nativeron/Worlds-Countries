@@ -14,7 +14,6 @@ export function Card({flag, name, region, alpha3Code}) {
 			<div >
 				<div className="name">
 					{name}
-					
 				<div className={s.region}>{region}</div>
 				</div>
 			</div>

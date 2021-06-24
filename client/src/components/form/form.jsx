@@ -61,7 +61,7 @@ export default function Form() {
     }
 
     function deleteCountry(e, c) {
-        setInput((prev) => ({ ...prev, country: prev.country.filter(temp => temp !== c) }))
+        setInput((prev) => ({ ...prev, country: prev.country.filter(countries => countries !== c) }))
     }
     
     function getOptions(arr) {
