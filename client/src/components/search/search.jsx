@@ -2,9 +2,12 @@ import React from 'react'
 import s from './search.module.css'
 import { BiSearchAlt } from 'react-icons/bi'
 
-function SearchBar({ input, setInput }) {
+function SearchBar({ input, setInput, numpag, setNumpag }) {
 
-
+function change(e){
+    setInput(e)
+    setNumpag(1)
+}
 
     
     return (
@@ -16,7 +19,7 @@ function SearchBar({ input, setInput }) {
                         type="text"
                         value={input}
                         placeholder="Find a country"
-                        onChange={(e) => setInput(e.target.value)}
+                        onChange={(e) => change(e.target.value)}
                     ></input>
                     
                         <BiSearchAlt className={s.icon}/>

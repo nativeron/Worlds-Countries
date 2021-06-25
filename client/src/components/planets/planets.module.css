@@ -1,0 +1,62 @@
+.planets{
+    width: 10%;
+}
+#tierra{
+    width: 30%;
+}
+#planets{
+    display: flex;
+    align-items: center;
+    margin: 15px;
+    border-radius: 10px;
+    padding: 20px;
+    width: 75%;
+    background-color: rgb(255 255 255);
+    box-shadow: 0 1px 10px rgb(0 0 0 / 50%);
+    font-family: 'Bebas Neue';
+    background-image: url(../../img/cow1.png);
+    background-repeat: no-repeat;
+    background-size: 10%;
+    background-position-x: right;
+}
+#planets:hover{
+    box-shadow: 0 1px 10px rgb(82 201 243);
+}
+#saturn, #jupiter{
+    display: flex;
+    align-content: stretch;
+    justify-content: center;
+    align-items: center;
+    color: rgb(175, 175, 175);
+    font-size: 30px;
+    display: inline-block;
+}
+
+#earth{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+}
+
+
+#text{
+    position: absolute;
+    margin: 20px;
+    font-size: 40px;
+    text-shadow: -2px 1px 7px #000;
+    -webkit-text-fill-color: #ffffff;
+    -webkit-text-stroke: 1px black;
+}
+#text:hover{
+    -webkit-text-fill-color: #ffffff;
+    text-shadow: -3px 3px 7px #389368;
+}
+#saturn:hover{
+    text-shadow: -7px 3px 4px #c277ca;
+    color: #000000;
+}
+#jupiter:hover{
+    text-shadow: -3px 2px 5px #e27c48;
+    color: #000000;
+}

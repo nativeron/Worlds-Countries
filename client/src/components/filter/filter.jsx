@@ -4,7 +4,7 @@ import { sort, getActivities, populationSort, filter, filtroReg} from '../../act
 import s from './filter.module.css'
 
 
-export default function Filtrar(){
+export default function Filtrar({numpag, setNumpag, input, setInput}){
 	const dispatch = useDispatch()
 
 	useEffect(() => {
@@ -34,10 +34,13 @@ export default function Filtrar(){
   	// }
 
 	  function reset(e){
+		  setNumpag(1)
+		  setInput('')
 		  dispatch(filter([]))
 	  }
   	
 	  function handleChangeAct(e){
+		setNumpag(1)
 		  setSelectedActivity(e.target.value)
 		  let  filtered= []
 		countries.forEach((p)=>{
@@ -49,6 +52,7 @@ export default function Filtrar(){
 	  }
 
 	  function handleChangeReg(e) {
+		  setNumpag(1)
 		  dispatch(filtroReg(e.target.value))
 		  setSelectedRegion(e.target.value)
 	  }

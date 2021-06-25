@@ -23,6 +23,7 @@
 }
 .input:hover{
     background-color: rgb(77, 12, 114);
+    color:white
 }
 .input:hover::placeholder{
     color:white

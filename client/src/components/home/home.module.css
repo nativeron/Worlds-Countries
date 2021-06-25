@@ -16,6 +16,9 @@
     border-radius: 14px;
     margin-bottom: 8px;
 }
+.search:hover{
+    box-shadow: 0 1px 7px 2px #ffffff;
+}
 
 .cards{
     display: flex;

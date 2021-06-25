@@ -9,16 +9,17 @@ import {FaArrowLeft} from 'react-icons/fa'
 import {FaArrowRight} from 'react-icons/fa'
 import loading from '../../img/alien5.png'
 import Footer from '../footer/footer';
+import Planets from '../planets/planets';
 
 
-export function Home({input, setInput}) {
+export function Home({input, setInput, numpag, setNumpag}) {
 
 	const dispatch = useDispatch()
 	const countries = useSelector(state => state.countries)
 	const filteredcountries = useSelector(state => state.filteredcountries)
 
 	
-	const [numpag, setNumpag] = useState(1)
+	// const [numpag, setNumpag] = useState(1)
 	const group = 10
 	const conteofinal = numpag * group
 	const conteoinicial= conteofinal - group
@@ -30,7 +31,7 @@ export function Home({input, setInput}) {
 
 
 	function displaycountries(array) {
-
+		
 		let countriestodisplay = array.filter((p)=> p.name.toLowerCase().includes(input.toLowerCase())).slice(conteoinicial,conteofinal)
 		
 		return countriestodisplay.length ? countriestodisplay.map((pais)=>{
@@ -47,8 +48,8 @@ export function Home({input, setInput}) {
         <div className={s.container}>
 			
 			<div className={s.search}>
-				<SearchBar setInput={setInput} input={input}/>
-				<Filtrar/>
+				<SearchBar setInput={setInput} input={input} setNumpag={setNumpag} numpag={numpag}/>
+				<Filtrar numpag={numpag} setNumpag={setNumpag} setInput={setInput} input={input}/>
 			</div>
 			<div className={s.pag}>
 			<div>
@@ -68,14 +69,14 @@ export function Home({input, setInput}) {
 			</div>
 			<div>
 				{console.log(displaycountries(countries).length)}
-				{displaycountries(countries).length<10 || numpag===25? <button className={s.buttond} disabled={true}><FaArrowRight className={s.arrow}/></button>:
+				{displaycountries(countries).length<10 || numpag===25 || displaycountries(filteredcountries).length<10 ? <button className={s.buttond} disabled={true}><FaArrowRight className={s.arrow}/></button>:
 				<button className={s.button} onClick={() => setNumpag(numpag + 1)}><FaArrowRight className={s.arrow}/></button>
 				}
 				
 				
 			</div>
-					        		        
-		  </div>
+				
+		  </div><Planets/>
 				<Footer/>
         </div>
     )
