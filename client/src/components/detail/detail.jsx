@@ -46,7 +46,7 @@ function Detail() {
                             return(
                                 <div >
                                     <div>
-                                        <h3>{cont.name}</h3>
+                                        <span>{cont.name}</span>
                                         <p>Season: {cont.season}</p>
                                     </div>
                                     <div>

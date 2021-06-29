@@ -2,7 +2,6 @@ import s from './errorr.module.css'
 import {FaArrowLeft} from "react-icons/fa"
 import {Link} from 'react-router-dom'
 import cow from '../../img/giphy.gif'
-import beach from '../../img/beach.png'
 function Errorcompo() {
     return(
         <div>

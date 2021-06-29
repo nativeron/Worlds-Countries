@@ -1,5 +1,5 @@
 .icon{
-    color:black;
+    color:white;
     font-size: 30px;
 }
 .container{
@@ -14,7 +14,7 @@
     border-radius: 5px;
     border: none;
     width: 400px;
-    background-color: paleturquoise;
+    background-color: white;
 }
 .input::placeholder{
     color: black;

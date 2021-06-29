@@ -11,7 +11,7 @@
     border-radius: 10px;
     padding: 20px;
     width: 75%;
-    background-color: rgb(255 255 255);
+    background-color: rgb(255 255 255 / 7%);
     box-shadow: 0 1px 10px rgb(0 0 0 / 50%);
     font-family: 'Bebas Neue';
     background-image: url(../../img/cow1.png);
@@ -54,9 +54,12 @@
 }
 #saturn:hover{
     text-shadow: -7px 3px 4px #c277ca;
-    color: #000000;
+    color: white;
+    -webkit-text-stroke: 0.5px black;
 }
 #jupiter:hover{
-    text-shadow: -3px 2px 5px #e27c48;
-    color: #000000;
+    text-shadow: -7px 2px 4px #e27c48;
+    color: white;
+    -webkit-text-stroke: 0.5px black;
 }
+

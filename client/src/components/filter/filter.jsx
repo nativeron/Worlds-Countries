@@ -20,18 +20,18 @@ export default function Filtrar({numpag, setNumpag, input, setInput}){
 	let [selectedRegion, setSelectedRegion] = useState('')
 	let [regToFilterBy, setRegToFilterBy] = useState([])
 
-	// function click() {
-	// 	let  filtered= []
-	// 	countries.forEach((p)=>{
-	// 		p.Activities.map(a=> a.name === selectedActivity ? 
-	// 			filtered.push(p) : null
-	// 			)
-	// 	})
-	// 	countries.forEach((p)=>{
-	// 		if (p.region === selectedRegion)filtered.push(p)
-	// 	})
-	// 	dispatch(filter(filtered))
-  	// }
+	function click() {
+		let  filtered= []
+		countries.forEach((p)=>{
+			p.Activities.map(a=> a.name === selectedActivity ? 
+				filtered.push(p) : null
+				)
+		})
+		countries.forEach((p)=>{
+			if (p.region === selectedRegion)filtered.push(p)
+		})
+		dispatch(filter(filtered))
+  	}
 
 	  function reset(e){
 		  setNumpag(1)
@@ -42,13 +42,7 @@ export default function Filtrar({numpag, setNumpag, input, setInput}){
 	  function handleChangeAct(e){
 		setNumpag(1)
 		  setSelectedActivity(e.target.value)
-		  let  filtered= []
-		countries.forEach((p)=>{
-			p.Activities.map(a=> a.name === selectedActivity ? 
-				filtered.push(p) : null
-				)
-		})
-		dispatch(filter(filtered))
+		  
 	  }
 
 	  function handleChangeReg(e) {
@@ -79,11 +73,10 @@ export default function Filtrar({numpag, setNumpag, input, setInput}){
 			  <form  onSubmit={handleSubmit}>
 
 				<select className={s.select} onChange={handleChangeAct} name="activities" value={selectedActivity}>
-					<option> by activity</option>
-				
+								
 					{ !activities.message ?  activities.map((e)=>(
 						<option value={e.name} key={e.id}>{e.name}</option>
-	  				)) : <p></p> }
+	  				)) : <option>no activities</option> }
 				</select>
 			
 				<select className={s.select} onChange={handleChangeReg} name="regions" value={selectedRegion}>
@@ -100,7 +93,7 @@ export default function Filtrar({numpag, setNumpag, input, setInput}){
 
 				<div>
 					 <button  className={s.button} onClick={reset}>erase filter</button>
-					{/*<button className={s.button} onClick={()=>click() }>filter</button> */}
+					<button className={s.button} onClick={()=>click() }>filter</button>
 				</div>
 			   </form>
 			</div>	

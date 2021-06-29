@@ -12,6 +12,9 @@ body{
     
     color: white;
 }
+.h4:hover{
+    color:rgb(79, 215, 224)
+}
 .welcome{
     display: flex;
     align-items: flex-start;

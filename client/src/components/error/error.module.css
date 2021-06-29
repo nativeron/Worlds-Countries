@@ -8,11 +8,9 @@
         background-color: white;
         width: 65%;
     }
-    .brg{
-        width: 240px;
-    }
+    
 .cow{
-    width: 30%;
+    width: 25%;
 }
     .j{
         display: flex;
@@ -34,9 +32,9 @@
     color: white;
     display: flex;
     justify-content: center;
-    margin-left: 17%;
-    margin-right: 18%;
-    align-items: center;
     font-family: monospace;
     font-size: 20px;
+    margin-left: 25%;
+    margin-right: 12%;
+    margin-top: 27px;
 }

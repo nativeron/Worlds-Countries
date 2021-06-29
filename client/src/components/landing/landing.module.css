@@ -13,7 +13,7 @@ body{
     align-items: center;
     flex-direction: column;
     justify-content: flex-end;
-    margin-top: 81px;
+    margin-top: 40px;
 }
 
 .button{
@@ -28,8 +28,9 @@ body{
     font-family: monospace;
 }
 .button:hover{
-
     box-shadow: 0 0 30px #61dafb;
+    background-color: #3fd0cf;
+    color: #2b2657;
 }
 
 .world{
