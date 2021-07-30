@@ -1,4 +1,4 @@
-<img src="https://user-images.githubusercontent.com/80424181/127586587-6e08fe44-1430-4327-921f-01d8f2c6707d.png" alt="JuveR" width="150px"><img src="https://user-images.githubusercontent.com/80424181/127586905-d00c2f15-3266-40eb-a495-ca294267fc6e.jpg" alt="JuveR" width="130px">
+<img src="https://user-images.githubusercontent.com/80424181/127586587-6e08fe44-1430-4327-921f-01d8f2c6707d.png" alt="JuveR" width="150px">
 
 ## World's countries 🌍
 Esta es una aplicación que realice durante la etapa de Proyecto individual en el bootcamp Henry
